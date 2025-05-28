@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AdminWavesOfFood</string>
+    <string name="waves_of_food">Waves Of Food</string>
+    <string name="pending_order">Pending Order</string>
+    <string name="add_menu">Add Menu</string>
+    <string name="total_earning">Total Earning</string>
+    <string name="completed_order">Completed Order</string>
 </resources>
