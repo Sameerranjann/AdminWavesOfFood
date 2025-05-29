@@ -28,5 +28,18 @@ binding.addMenu.setOnClickListener{
             val intent = Intent(this, OutForDeliveryActivity::class.java)
             startActivity(intent)
         }
+        binding.profile.setOnClickListener{
+            val intent = Intent(this, AdminProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.createUser.setOnClickListener{
+            val intent = Intent(this, CreateUseractivity::class.java)
+            startActivity(intent)
+        }
+        binding.pendingOrderTextView.setOnClickListener{
+            val intent = Intent(this, PendingOrderActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

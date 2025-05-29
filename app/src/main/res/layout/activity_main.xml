@@ -85,15 +85,15 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/attention"
-                app:layout_constraintBottom_toTopOf="@+id/textView7"
-                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintBottom_toTopOf="@+id/pendingOrderTextView"
+                app:layout_constraintEnd_toEndOf="@+id/pendingOrderTextView"
                 app:layout_constraintHorizontal_bias="0.526"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/pendingOrderTextView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/pendingOrderTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -118,10 +118,10 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintEnd_toEndOf="@+id/pendingOrderTextView"
                 app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/pendingOrderTextView"
+                app:layout_constraintTop_toBottomOf="@+id/pendingOrderTextView"
                 app:layout_constraintVertical_bias="1.0"
                 tools:ignore="MissingConstraints" />
 
@@ -376,6 +376,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/createUser"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/cardgreen">
@@ -472,6 +473,7 @@
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/cardgreen">
