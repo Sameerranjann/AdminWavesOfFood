@@ -15,7 +15,7 @@ class AdminProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.backButton.setOnClickListener{
+        binding.backButtonAdminProfile.setOnClickListener{
             finish()
         }
         binding.name.isEnabled = false

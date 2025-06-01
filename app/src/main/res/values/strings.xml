@@ -5,4 +5,8 @@
     <string name="add_menu">Add Menu</string>
     <string name="total_earning">Total Earning</string>
     <string name="completed_order">Completed Order</string>
+    <string name="default_web_client_id">your-client-id-from-google</string>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+
+
 </resources>
