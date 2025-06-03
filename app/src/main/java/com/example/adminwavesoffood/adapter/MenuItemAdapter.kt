@@ -38,14 +38,14 @@ class MenuItemAdapter(
             val quantity = itemQuantities[position]
 
             binding.apply {
-                fooddNameTextView.text = menuItem.foodName
-                textViewPrice.text = menuItem.foodPrice
+                fooddNameTextView.text = menuItem.name
+                pendingOrderQuantity.text = menuItem.price
                 quantityTextView.text = quantity.toString()
 
                 // ✅ Safe image loading
-                if (!menuItem.foodImage.isNullOrEmpty()) {
+                if (!menuItem.imageUrl.isNullOrEmpty()) {
                     Glide.with(root.context)
-                        .load(menuItem.foodImage)
+                        .load(menuItem.imageUrl)
                         .into(foodImageView)
                 }
 

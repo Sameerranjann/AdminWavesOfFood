@@ -57,14 +57,15 @@
                 android:text="Spacy fresh crab"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:gravity="center_vertical"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textViewPrice"
+                app:layout_constraintBottom_toTopOf="@+id/pendingOrderQuantity"
                 app:layout_constraintEnd_toStartOf="@+id/minusButton"
                 app:layout_constraintStart_toEndOf="@+id/cardView4"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewPrice"
+                android:id="@+id/pendingOrderQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$ 35"
@@ -73,10 +74,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/fooddNameTextView"
-                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintHorizontal_bias="0.529"
                 app:layout_constraintStart_toEndOf="@+id/cardView4"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.849" />
+                app:layout_constraintVertical_bias="0.847" />
 
             <ImageView
                 android:id="@+id/minusButton"
@@ -113,9 +114,9 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/plusButton"
+                app:layout_constraintEnd_toEndOf="@+id/plusButton"
                 app:layout_constraintHorizontal_bias="0.611"
-                app:layout_constraintStart_toEndOf="@+id/minusButton"
+                app:layout_constraintStart_toStartOf="@+id/minusButton"
                 app:layout_constraintTop_toBottomOf="@+id/plusButton"
                 app:srcCompat="@drawable/delete" />
 

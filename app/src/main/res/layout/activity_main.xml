@@ -102,7 +102,7 @@
                 android:text="@string/pending_order"
                 android:textColor="#53E88B"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                app:layout_constraintBottom_toTopOf="@+id/pendingOrders"
                 app:layout_constraintEnd_toStartOf="@+id/textView70"
                 app:layout_constraintHorizontal_bias="0.583"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/pendingOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp"
