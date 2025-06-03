@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminwavesoffood.adapter.DeliveryAdapter
+
 import com.example.adminwavesoffood.adapter.PendingOrderAdapter
 import com.example.adminwavesoffood.databinding.ActivityPendingOrderBinding
 import com.example.adminwavesoffood.model.OrderDetails
