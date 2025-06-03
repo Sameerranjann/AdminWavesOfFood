@@ -6,15 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.adminwavesoffood.AllItemActivity
-import com.example.adminwavesoffood.R
 import com.example.adminwavesoffood.databinding.ItemItemBinding
 import com.example.adminwavesoffood.model.AllMenu
 import com.google.firebase.database.DatabaseReference
 
 class MenuItemAdapter(
-    @SuppressLint("RestrictedApi") private val context: AllItemActivity,
+    @SuppressLint("RestrictedApi")
+    private val context: AllItemActivity,
     private val menuList: ArrayList<AllMenu>,
-    private val databaseReference: DatabaseReference
+    databaseReference: DatabaseReference,
+    private val onDeleteClickListener: (Int) -> Unit
+
 ) : RecyclerView.Adapter<MenuItemAdapter.AddItemViewHolder>() {
 
     private val itemQuantities = IntArray(menuList.size) { 1 }
@@ -52,7 +54,8 @@ class MenuItemAdapter(
                 // 🔘 Button actions
                 minusButton.setOnClickListener { decreaseQuantity(position) }
                 plusButton.setOnClickListener { increaseQuantity(position) }
-                deleteButton.setOnClickListener { deleteItem(position) }
+                deleteButton.setOnClickListener {
+                    onDeleteClickListener(position) }
             }
         }
 

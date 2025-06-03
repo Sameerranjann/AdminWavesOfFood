@@ -2,6 +2,7 @@ package com.example.adminwavesoffood
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,21 +33,20 @@ class AllItemActivity : AppCompatActivity() {
     }
 
     private fun retriveMenuItem() {
-      database = FirebaseDatabase.getInstance()
+        database = FirebaseDatabase.getInstance()
         val foodRef : DatabaseReference = database.reference.child("menu")
 
-        //fetch data from databases.
-        foodRef.addListenerForSingleValueEvent(object : ValueEventListener{
-
-
-            override fun onDataChange(snapshot: DataSnapshot){
+        foodRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
                 menuItems.clear()
 
-
-                for (foodSnapshot in snapshot.children){
+                for (foodSnapshot in snapshot.children) {
                     val menuItem = foodSnapshot.getValue(AllMenu::class.java)
-                    menuItem?.let{
-                        menuItems.add(it)
+                    menuItem?.let {
+                        // Yahan replace karna hai
+                        val key = foodSnapshot.key
+                        val menuItemWithKey = it.copy(key = key)
+                        menuItems.add(menuItemWithKey)
                     }
                 }
                 setAdapter()
@@ -56,11 +56,35 @@ class AllItemActivity : AppCompatActivity() {
                 Log.d("DatabaseError","Error: ${error.message}")
             }
         })
-
     }
+
     private fun setAdapter() {
-        val adapter = MenuItemAdapter(this@AllItemActivity,menuItems,databaseReference)
+
+        val adapter = MenuItemAdapter(this@AllItemActivity,menuItems,databaseReference){ position ->
+            deleteMenuItems(position)
+        }
         binding.MenuRecyclerview.layoutManager = LinearLayoutManager(this)
         binding.MenuRecyclerview.adapter = adapter
     }
+    private fun deleteMenuItems(position: Int) {
+        val menuItemToDelete = menuItems[position]
+        val menuItemKey = menuItemToDelete.key
+
+        if (menuItemKey != null) {
+            val foodMenuReference = database.reference.child("menu").child(menuItemKey)
+            foodMenuReference.removeValue().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    menuItems.removeAt(position)
+                    binding.MenuRecyclerview.adapter?.notifyItemRemoved(position)
+                } else {
+                    Toast.makeText(this, "Item not deleted", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            Toast.makeText(this, "Invalid item. Key is missing.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
+
+

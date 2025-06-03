@@ -41,8 +41,6 @@ class AddItemActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        // Initialize Cloudinary
-        initCloudinary()
 
         binding.addItemButton.setOnClickListener {
             foodName = binding.enterFoodName.text.toString().trim()
@@ -64,15 +62,7 @@ class AddItemActivity : AppCompatActivity() {
 
     }
 
-    // Initialize Cloudinary
-    private fun initCloudinary() {
-        val config = hashMapOf(
-            "cloud_name" to "dva1xkzye",
-            "api_key" to "284631695619469",
-            "upload_preset" to "android_unsigned" // Use unsigned upload preset
-        )
-        MediaManager.init(this, config)
-    }
+
 
     // Upload image to Cloudinary
     private fun uploadImageToCloudinary() {
@@ -104,6 +94,7 @@ class AddItemActivity : AppCompatActivity() {
 
         if (newItemKey != null) {
             val itemData = mapOf(
+                "key" to newItemKey,  // <-- yaha key ko add karo
                 "name" to foodName,
                 "price" to foodPrice,
                 "description" to foodDescription,
@@ -120,6 +111,7 @@ class AddItemActivity : AppCompatActivity() {
                 }
         }
     }
+
 
     // Image picker
     private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
